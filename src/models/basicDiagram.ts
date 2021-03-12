@@ -2,7 +2,7 @@
 import type { Reducer, Effect } from 'umi';
 
 export type StateType = {
-  counter?: number;
+  counter: number;
   // status?: 'ok' | 'error';
   // type?: string;
   // currentAuthority?: 'user' | 'guest' | 'admin';
@@ -16,7 +16,7 @@ export type BasicDiagramModelType = {
   //   decrease: Effect;
   // };
   reducers: {
-    changeCounter: Reducer<StateType>;
+    increase: Reducer<StateType>;
   };
 };
 
@@ -35,12 +35,12 @@ const Model: BasicDiagramModelType = {
   // },
 
   reducers: {
-    changeCounter(state, { payload }) {
+    increase(state) {
+      const currCounter = state?.counter ? state.counter : 0;
       return {
         ...state,
-        status: payload.status,
-        type: payload.type,
-      };
+        counter: currCounter + 1
+      }
     },
   },
 };
