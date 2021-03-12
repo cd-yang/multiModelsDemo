@@ -56,6 +56,18 @@
                 component: './TableList',
               },
               {
+                name: 'basic-diagram',
+                icon: 'stepBackward',
+                path: '/basic-diagram',
+                component: './BasicDiagram',
+              },
+              {
+                name: 'extend-diagram',
+                icon: 'fastBackward',
+                path: '/extend-diagram',
+                component: './ExtendDiagram',
+              },
+              {
                 component: './404',
               },
             ],
