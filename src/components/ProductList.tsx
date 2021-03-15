@@ -8,26 +8,24 @@ export type ProductListProps = {
 };
 
 function ProductList({ onDelete, products }: ProductListProps) {
-  const columns = [{
-    title: 'Name',
-    dataIndex: 'name',
-  }, {
-    title: 'Actions',
-    render: (text: string, record: ListItem) => {
-      return (
-        <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
-          <Button>Delete</Button>
-        </Popconfirm>
-      );
+  const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
     },
-  }];
+    {
+      title: 'Actions',
+      render: (text: string, record: ListItem) => {
+        return (
+          <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
+            <Button>Delete</Button>
+          </Popconfirm>
+        );
+      },
+    },
+  ];
 
-  return (
-    <Table
-      dataSource={products}
-      columns={columns}
-    />
-  );
+  return <Table rowKey="name" dataSource={products} columns={columns} />;
 }
 
 ProductList.propTypes = {
