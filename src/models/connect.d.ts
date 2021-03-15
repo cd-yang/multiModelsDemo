@@ -23,6 +23,7 @@ export type ConnectState = {
   settings: ProSettings;
   user: UserModelState;
   login: StateType;
+  basicDiagram: BasicDiagramState;
 };
 
 export type Route = {

@@ -1,48 +1,34 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { Reducer, Effect } from 'umi';
 
-export type StateType = {
-  counter: number;
-  // status?: 'ok' | 'error';
-  // type?: string;
-  // currentAuthority?: 'user' | 'guest' | 'admin';
-};
+export type ListItem = {
+  name: string,
+  id: number
+}
 
 export type BasicDiagramModelType = {
   namespace: string;
-  state: StateType;
-  // effects: {
-  //   increase: Effect;
-  //   decrease: Effect;
-  // };
+  state: ListItem[];
   reducers: {
-    increase: Reducer<StateType>;
+    delete: Reducer<ListItem[]>;
   };
 };
 
 const Model: BasicDiagramModelType = {
-  namespace: 'basic-diagram',
+  namespace: 'basicDiagram',  // 经测试，这里的 namespace 会直接与全局 state 中的相关属性绑定
 
-  state: {
-    counter: 0,
-  },
-
-  // effects: {
-  //   increase() {
-  //   },
-  //   decrease() {
-  //   },
-  // },
+  state: [
+    { name: 'dva', id: 1 },
+    { name: 'antd', id: 2 },
+  ],
 
   reducers: {
-    increase(state) {
-      const currCounter = state?.counter ? state.counter : 0;
-      return {
-        ...state,
-        counter: currCounter + 1
-      }
-    },
-  },
+    delete(state, { payload }) {
+      if (state)
+        return state.filter(item => item.id !== payload);
+      return [];
+    }
+  }
 };
 
 export default Model;

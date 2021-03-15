@@ -1,31 +1,39 @@
-import React from 'react';
-import { PageHeaderWrapper } from '@ant-design/pro-layout';
-import type { StateType } from '@/models/basicDiagram';
 import { connect } from 'dva';
+import type { Dispatch } from 'umi';
+import ProductList from '@/components/ProductList';
+import type { ListItem } from '@/models/basicDiagram';
 
-type ConnectState = {
-  // global: GlobalModelState;
-  // loading: Loading;
-  // settings: ProSettings;
-  // user: UserModelState;
-  // login: StateType;
-  basicDiagram: StateType;
-};
+type BasicDiagramState = {
+  basicDiagram: ListItem[];
+}
 
 export type BasicDiagramProps = {
-  // dispatch: Dispatch;
+  dispatch: Dispatch;
+  state: BasicDiagramState;
 };
 
-const BasicDiagram: React.FC<BasicDiagramProps> = () => {
+const BasicDiagram = ({ dispatch, state }: BasicDiagramProps) => {
+  function handleDelete(id: number) {
+    dispatch({
+      type: 'basicDiagram/delete',    // 经测试，这里的 basicDiagram 需要与当前 page 路径保持一致
+      payload: id,
+    });
+  }
   return (
-    <PageHeaderWrapper content="Basic Diagram">
-    </PageHeaderWrapper>
+    <div>
+      <h2>List of Products</h2>
+      <ProductList onDelete={handleDelete} products={state.basicDiagram} />
+    </div>
   );
 
 }
 
-// export default BasicDiagram;
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export default connect(({ basicDiagram }: ConnectState) => ({
-  basicDiagram,
-}))(BasicDiagram);
+const mapStateToProps = (state: BasicDiagramState) => {
+  return {
+    state
+  }
+}
+
+export default connect(
+  mapStateToProps
+)(BasicDiagram);
