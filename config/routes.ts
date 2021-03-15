@@ -15,6 +15,17 @@
         ],
       },
       {
+        path: '/dodaf',
+        component: '../layouts/DodafLayout',
+        routes: [
+          {
+            name: 'sv',
+            path: '/dodaf/sv',
+            component: './Dodaf/Sv',
+          },
+        ],
+      },
+      {
         path: '/',
         component: '../layouts/SecurityLayout',
         routes: [
