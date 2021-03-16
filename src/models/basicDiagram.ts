@@ -9,7 +9,7 @@ export type BasicDiagramState = {
   listData: ListItem[];
 }
 
-type BasicDiagramModelType = {
+export type BasicDiagramModelType = {
   namespace: string;
   state: BasicDiagramState;
   reducers: {

@@ -3,6 +3,7 @@ import { GlobalModelState } from './global';
 import { UserModelState } from './user';
 import type { StateType } from './login';
 import type { BasicDiagramState } from '@/models/basicDiagram';
+import type { ExtendDiagramState } from '@/models/basicDiagram';
 
 export { GlobalModelState, UserModelState };
 
