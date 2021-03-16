@@ -1,9 +1,9 @@
-import { Tooltip, Tag } from 'antd';
+import { Button, Tooltip, Tag } from 'antd';
 import type { Settings as ProSettings } from '@ant-design/pro-layout';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import React from 'react';
 import type { ConnectProps } from 'umi';
-import { connect, SelectLang } from 'umi';
+import { connect, Link, SelectLang } from 'umi';
 import type { ConnectState } from '@/models/connect';
 import Avatar from './AvatarDropdown';
 import HeaderSearch from '../HeaderSearch';
@@ -30,6 +30,9 @@ const GlobalHeaderRight: React.SFC<GlobalHeaderRightProps> = (props) => {
 
   return (
     <div className={className}>
+      <Button type="primary" className={styles.button}>
+        <Link to="/dodaf">前往 Layout 测试页面</Link>
+      </Button>
       <HeaderSearch
         className={`${styles.action} ${styles.search}`}
         placeholder="站内搜索"
@@ -49,9 +52,9 @@ const GlobalHeaderRight: React.SFC<GlobalHeaderRightProps> = (props) => {
             value: 'Pro Layout',
           },
         ]}
-        // onSearch={value => {
-        //   //console.log('input', value);
-        // }}
+      // onSearch={value => {
+      //   //console.log('input', value);
+      // }}
       />
       <Tooltip title="使用文档">
         <a

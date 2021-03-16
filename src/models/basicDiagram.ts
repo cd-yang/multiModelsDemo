@@ -1,5 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { Reducer, Effect } from 'umi';
+import type { Reducer } from 'umi';
 
 export type ListItem = {
   name: string,

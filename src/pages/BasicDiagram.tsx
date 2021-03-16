@@ -21,7 +21,7 @@ const BasicDiagram = ({ dispatch, state }: BasicDiagramProps) => {
   }
   return (
     <div>
-      <h2>List of Products</h2>
+      <h2>此页面绑定了一个基础 Model</h2>
       <ProductList onDelete={handleDelete} products={state.basicDiagram} />
     </div>
   );

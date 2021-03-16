@@ -1,9 +1,9 @@
 import React from 'react';
-import { PageHeaderWrapper } from '@ant-design/pro-layout';
 
 export default (): React.ReactNode => {
   return (
-    <PageHeaderWrapper content="Extend Diagram">
-    </PageHeaderWrapper>
+    <div>
+      <h2>此页面对基础 Model 进行扩展</h2>
+    </div>
   );
 };
