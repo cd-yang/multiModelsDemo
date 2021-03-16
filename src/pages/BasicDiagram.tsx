@@ -3,7 +3,7 @@ import type { Dispatch } from 'umi';
 import ProductList from '@/components/ProductList';
 import type { ListItem } from '@/models/basicDiagram';
 
-type BasicDiagramState = {
+export type BasicDiagramState = {
   basicDiagram: ListItem[];
 }
 
@@ -28,7 +28,7 @@ const BasicDiagram = ({ dispatch, state }: BasicDiagramProps) => {
 
 }
 
-const mapStateToProps = (state: BasicDiagramState) => {
+export const mapStateToProps = (state: BasicDiagramState) => {
   return {
     state
   }

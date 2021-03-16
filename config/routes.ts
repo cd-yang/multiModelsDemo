@@ -73,6 +73,12 @@
                 component: './BasicDiagram',
               },
               {
+                name: 'basic-diagram2',
+                icon: 'stepBackward',
+                path: '/basic-diagram2',
+                component: './BasicDiagram2',
+              },
+              {
                 name: 'extend-diagram',
                 icon: 'fastBackward',
                 path: '/extend-diagram',

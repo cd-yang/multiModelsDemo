@@ -50,5 +50,6 @@ export default {
   'menu.editor.mind': '脑图编辑器',
   'menu.editor.koni': '拓扑编辑器',
   'menu.basic-diagram': 'basic-diagram',
+  'menu.basic-diagram2': 'basic-diagram2',
   'menu.extend-diagram': 'extend-diagram',
 };
