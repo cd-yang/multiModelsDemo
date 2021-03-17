@@ -25,7 +25,7 @@ function ProductList({ onDelete, products }: ProductListProps) {
     },
   ];
 
-  return <Table rowKey="name" dataSource={products} columns={columns} />;
+  return <Table rowKey="id" dataSource={products} columns={columns} />;
 }
 
 ProductList.propTypes = {

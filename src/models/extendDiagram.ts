@@ -1,6 +1,6 @@
 import type { Reducer } from 'umi';
-import * as BasicModel from '@/models/basicDiagram';
-import type { BasicDiagramModelType, BasicDiagramState } from '@/models/basicDiagram';
+import Model from '@/models/basicDiagram';
+import type { BasicDiagramState } from '@/models/basicDiagram';
 import modelExtend from 'dva-model-extend';
 
 export type ExtendDiagramState = BasicDiagramState & {
@@ -12,27 +12,11 @@ type ExtendDiagramModelType = {
   state: ExtendDiagramState;
   reducers: {
     delete: Reducer<ExtendDiagramState>;
+    increase: Reducer<ExtendDiagramState>;
   };
 };
 
-// const Model: ExtendDiagramModelType = {
-//   namespace: 'extendDiagram',  // 经测试，这里的 namespace 会直接与全局 state 中的相关属性绑定
-
-//   state: [
-//     { name: 'dva', id: 1 },
-//     { name: 'antd', id: 2 },
-//   ],
-
-//   reducers: {
-//     delete(state, { payload }) {
-//       if (state)
-//         return state.filter(item => item.id !== payload);
-//       return [];
-//     }
-//   }
-// };
-
-const Model = modelExtend(BasicModel, {
+const ExtModel: ExtendDiagramModelType = modelExtend(Model, {
   namespace: 'extendDiagram',
   state: {
     listData: [
@@ -42,6 +26,16 @@ const Model = modelExtend(BasicModel, {
     ],
     counter: 3,
   },
+  reducers: {
+    increase(state: ExtendDiagramState) {
+      if (state)
+        return {
+          ...state,
+          counter: state.counter + 1
+        };
+      return {}
+    }
+  }
 }) as ExtendDiagramModelType;
 
-export default Model;
+export default ExtModel;
